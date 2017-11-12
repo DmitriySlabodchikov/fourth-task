@@ -9,8 +9,6 @@ var tree = {
 	],
 
 	select:false,
-	autoheight:true,
-
 	data: treeInfo
 		
 };
