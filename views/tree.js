@@ -1,5 +1,5 @@
 var tree = {
-		
+	id:"tree",	
 	view:"treetable",
 	columns:[ 
 		{ id:"id", header:"", width:50}, 
@@ -9,6 +9,13 @@ var tree = {
 	],
 
 	select:false,
-	data: treeInfo
+
+	data: treeInfo,
+	
+	on:{
+		"onAfterLoad":function(){
+			$$("tree").openAll();
+		}
+	}
 		
 };

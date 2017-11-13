@@ -38,17 +38,7 @@ var userFilter = {
 			]
 		},
 		{}
-	], 
-	rules:{
-		user: webix.rules.isNotEmpty				
-	}, 
-	on:{
-	  onValidationError: function(key, data) {
-		webix.message({
-			text: key.data + " field is incorrect",
-			type: "error"
-		});
-	}
+	]
 }
 };
 

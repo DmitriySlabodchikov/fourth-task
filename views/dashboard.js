@@ -52,18 +52,13 @@ var form = {
 
 					
 					var sel = $$("datatable").getSelectedId();
-					if(!sel) return;
-				 
-					var value1 = $$('form').getValues().title.replace(/<[^>]+>/g,'');;
-					var value2 = $$('form').getValues().year.replace(/<[^>]+>/g,'');;
-					var value3 = $$('form').getValues().votes.replace(/<[^>]+>/g,'');;
-					var value4 = $$('form').getValues().rating.replace(/<[^>]+>/g,'');;
-				 
-					var item = $$("datatable").getItem(sel); //selected item object
-					item.title = value1;
-					item.year = value2;
-					item.votes = value3;
-					item.rating = value4;
+					
+					var item = $$("form").getValues();
+					for (key in item){
+						item[key] = item[key].replace(/<[^>]+>/g,'');
+					}
+					
+					
 					$$("datatable").updateItem(sel, item);
 				}	
 			}	
@@ -108,15 +103,11 @@ var form = {
 function votes(a,b){	
 	a = a.votes.toString().replace(",",".");
 	b = b.votes.toString().replace(",",".");
-	a = Number(a);
-	b = Number(b);
 	return a > b ? 1 : -1;
 };
 
 function rating(a,b){	
 	a = a.rating.toString().replace(",",".");
 	b = b.rating.toString().replace(",",".");
-	a = Number(a);
-	b = Number(b);
 	return a > b ? 1 : -1;
 };
